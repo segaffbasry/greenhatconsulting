@@ -178,3 +178,26 @@ export const cta = {
 };
 
 export const tagline = ["Support", "Inspire", "Protect"];
+
+// From the live About page.
+export const intro = "We are a consultancy dedicated to health, safety and compliance within the construction industry. We work in partnership with housing associations, local authorities and major contractors, providing expert guidance on CDM regulations, Principal Design and SSIP accreditation.";
+
+export const story = {
+  title: "“Why the Green Hat?” you might be wondering",
+  body: [
+    "Dr Edward de Bono invented the model of six coloured hats to represent aspects of creative thinking and problem solving using different points of view.",
+    "The Green Hat symbolises creative thinking where ideas are abundant. We encourage new and innovative thinking and solutions. Hence the Green Hat.",
+  ],
+  quote: "Simply put – we love to solve problems and come up with new ideas to save our customers time, money and energy.",
+  photo: "/media/2024/12/Andrew-Headshot-1-scaled.jpg",
+  person: { name: "Andrew Warring", role: "Managing Director", href: "/meet-the-team/andrew-warring-managing-director" },
+};
+
+export const values = [
+  { name: "People First", body: "We put people first in everything we do—on our projects, in our office, and in life." },
+  { name: "Dependable", body: "We do what we say we’ll do. This builds deep, lasting relationships based on mutual trust." },
+  { name: "Creative", body: "We constantly seek new approaches to influence and benefit people." },
+  { name: "Passionate", body: "When we commit to something, we give it everything. We’re driven, thorough, and excited by what we do." },
+  { name: "Impactful", body: "We do what’s needed to make a positive difference. Enough is never enough." },
+  { name: "Caring", body: "We show care for everyone we impact—including people we may never meet." },
+];

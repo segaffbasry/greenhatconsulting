@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: "Meet the Team" };
 
 export default function TeamIndex() {
   return <>
-    <PageHead eyebrow="About us" title="Meet the team" pixel>
+    <PageHead eyebrow="About us" title={<>Meet the <em className="serif">team</em></>}>
       <p className="page-lede" data-rise>Let us introduce you to the Green Hat team.</p>
     </PageHead>
     <section className="section" data-bg="white">

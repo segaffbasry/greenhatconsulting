@@ -1,13 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow } from "next/font/google";
-import { GeistPixelCircle } from "geist/font/pixel";
+import { Barlow, Instrument_Serif } from "next/font/google";
 import { Shell } from "@/components/Chrome";
 import { posthogSnippet } from "@/lib/posthog";
 import "./globals.css";
 
-// Barlow (the look reference's face) carries the UI. Geist Pixel Circle, the dot-matrix face from the motion
-// reference, is kept for the hero and a few headline moments; it reads like a site LED board.
+// Barlow (the look reference's face) carries the UI. Instrument Serif italic is the accent, kept for a single
+// word in the hero and a few headline moments, to give the consultancy a warmer, editorial voice.
 const ui = Barlow({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], variable: "--font-ui", display: "swap" });
+const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-serif", display: "swap" });
 
 export const metadata: Metadata = {
   title: { default: "Expert Health & Safety Consultancy | Green Hat Consulting", template: "%s | Green Hat Consulting" },
@@ -20,10 +20,10 @@ export const viewport: Viewport = { themeColor: "#1B2032" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-GB" className={`${ui.variable} ${GeistPixelCircle.variable}`}>
+    <html lang="en-GB" className={`${ui.variable} ${serif.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: posthogSnippet }} />
-        <noscript><style>{"[data-rise],[data-clip],.hero-char,.hero-in{visibility:visible!important;opacity:1!important}"}</style></noscript>
+        <noscript><style>{"[data-rise],[data-clip],.hero-line-inner,.hero-in{visibility:visible!important;opacity:1!important}"}</style></noscript>
       </head>
       <body>
         <Shell>{children}</Shell>

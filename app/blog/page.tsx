@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Health and Safety Blog" };
 
 export default function BlogIndex() {
   return <>
-    <PageHead eyebrow="Resources" title="Blog" pixel>
+    <PageHead eyebrow="Resources" title={<>The <em className="serif">blog</em></>}>
       <p className="page-lede" data-rise>{blog.length} articles on health and safety, compliance, Principal Design and company news.</p>
     </PageHead>
     <section className="section archive" data-bg="white">

@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "HSE Updates" };
 
 export default function HseIndex() {
   return <>
-    <PageHead eyebrow="Resources" title="HSE updates" pixel>
+    <PageHead eyebrow="Resources" title={<>HSE <em className="serif">updates</em></>}>
       <p className="page-lede" data-rise>{hse.length} updates on HSE guidance, prosecutions and enforcement.</p>
     </PageHead>
     <section className="section archive" data-bg="white">

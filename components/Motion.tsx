@@ -50,7 +50,7 @@ function useSmoothScroll() {
    - [data-rise]      headings and copy: one calm fade and rise, once.
    - [data-clip]      image frames: open from an inset clip as they arrive.
    - [data-parallax]  images inside a frame: drift about 10% against the scroll.
-   - [data-slide]     the few oversized pixel headlines: travel sideways with the scroll.
+   - [data-slide]     oversized display lines: travel sideways with the scroll.
    - [data-count]     figures count up once when they come into view. */
 function usePageMotion(pathname: string) {
   useEffect(() => {

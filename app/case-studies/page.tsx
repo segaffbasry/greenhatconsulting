@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Case Studies" };
 
 export default function CaseIndex() {
   return <>
-    <PageHead eyebrow="Resources" title="Case studies" pixel>
+    <PageHead eyebrow="Resources" title={<><em className="serif">Case</em> studies</>}>
       <p className="page-lede" data-rise>We work in partnership with housing associations, local authorities and major contractors.</p>
     </PageHead>
     <section className="section cases cases--index" data-bg="navy">

@@ -1,10 +1,47 @@
 import { ArticleCard, CaseCard, UpdateRow } from "@/components/Cards";
-import { Hero, VideoBand } from "@/components/Hero";
+import { Hero } from "@/components/Hero";
 import { Cta } from "@/components/Sections";
 import { Testimonials } from "@/components/Testimonials";
 import { Arrow, Btn, Eyebrow, Frame, TextLink } from "@/components/ui";
 import { blog, caseStudies, hse } from "@/lib/content";
-import { clients, services, stats, why } from "@/lib/site";
+import { clients, intro, services, stats, story, values, why } from "@/lib/site";
+
+/* Who Green Hat are, in their own words: the About page statement, the story behind the name, and their values. */
+function Story() {
+  return <section className="section story" data-bg="white">
+    <div className="wrap">
+      <Eyebrow>About us</Eyebrow>
+      <p className="statement" data-rise>
+        We are a consultancy dedicated to <em className="serif">health, safety and compliance</em> within the construction industry. {intro.split("construction industry. ")[1]}
+      </p>
+      <div className="story-grid">
+        <figure className="story-person">
+          <Frame src={story.photo} alt={`${story.person.name}, ${story.person.role}`} className="story-photo" />
+          <figcaption data-rise><a href={story.person.href}>{story.person.name}</a><span>{story.person.role}</span></figcaption>
+        </figure>
+        <div className="story-copy">
+          <h2 className="h-md" data-rise>{story.title}</h2>
+          {story.body.map((p) => <p key={p.slice(0, 20)} data-rise>{p}</p>)}
+          <blockquote className="story-quote" data-rise><p>{story.quote}</p></blockquote>
+          <div className="story-links" data-rise>
+            <Btn href="/meet-the-team" variant="dark">Meet the team</Btn>
+            <TextLink href="https://www.greenhat-consulting.co.uk/about-us/">About Green Hat</TextLink>
+          </div>
+        </div>
+      </div>
+      <div className="values">
+        <h3 className="values-title" data-rise>Our <em className="serif">values</em></h3>
+        <ol className="values-list">
+          {values.map((v, i) => <li key={v.name} data-rise>
+            <span className="more-index">{String(i + 1).padStart(2, "0")}</span>
+            <h4>{v.name}</h4>
+            <p>{v.body}</p>
+          </li>)}
+        </ol>
+      </div>
+    </div>
+  </section>;
+}
 
 function Stats() {
   return <section className="section stats" data-bg="forest">
@@ -93,12 +130,11 @@ function Clients() {
 
 function Cases() {
   return <section className="section cases" data-bg="navy">
-    <p className="pixel-slide" data-slide aria-hidden="true">Case studies · Case studies ·</p>
     <div className="wrap">
       <div className="split-head">
         <div>
-          <Eyebrow>Case studies</Eyebrow>
-          <h2 className="h-lg" data-rise>We work in partnership with housing associations, local authorities and major contractors.</h2>
+          <Eyebrow>Resources</Eyebrow>
+          <h2 className="h-xl" data-rise><em className="serif">Case</em> studies</h2>
         </div>
         <div data-rise><TextLink href="/case-studies">View all {caseStudies.length} case studies</TextLink></div>
       </div>
@@ -143,7 +179,7 @@ function Latest() {
 export default function Home() {
   return <>
     <Hero />
-    <VideoBand />
+    <Story />
     <Stats />
     <Services />
     <Why />

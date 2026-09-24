@@ -2,9 +2,9 @@ import { Arrow } from "@/components/ui";
 import type { Article, CaseStudy, Person } from "@/lib/content";
 import { articleHref, formatDate } from "@/lib/content";
 
-/* HSE updates without a featured image get a quiet LED-style tile instead of a stock photo. */
+/* HSE updates without a featured image get a plain navy tile with the Green Hat mark instead of a stock photo. */
 function Placeholder({ label }: { label: string }) {
-  return <div className="card-fallback" aria-hidden="true"><span>{label}</span></div>;
+  return <div className="card-fallback" aria-hidden="true"><img src="/brand/logo-white.svg" alt="" /><span>{label}</span></div>;
 }
 
 export function ArticleCard({ article, compact = false }: { article: Article; compact?: boolean }) {
