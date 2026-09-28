@@ -4,57 +4,42 @@ import { Cta } from "@/components/Sections";
 import { Testimonials } from "@/components/Testimonials";
 import { Arrow, Btn, Eyebrow, Frame, TextLink } from "@/components/ui";
 import { blog, caseStudies, hse } from "@/lib/content";
-import { clients, intro, services, stats, story, values, why } from "@/lib/site";
+import { clients, intro, services, stats, story, why } from "@/lib/site";
 
-/* Who Green Hat are, in their own words: the About page statement, the story behind the name, and their values. */
+/* Who Green Hat are, in their own words: the About page statement and the story behind the name. */
 function Story() {
   return <section className="section story" data-bg="white">
-    <div className="wrap">
-      <Eyebrow>About us</Eyebrow>
-      <p className="statement" data-rise>
-        We are a consultancy dedicated to <em className="serif">health, safety and compliance</em> within the construction industry. {intro.split("construction industry. ")[1]}
-      </p>
-      <div className="story-grid">
-        <figure className="story-person">
-          <Frame src={story.photo} alt={`${story.person.name}, ${story.person.role}`} className="story-photo" />
-          <figcaption data-rise><a href={story.person.href}>{story.person.name}</a><span>{story.person.role}</span></figcaption>
-        </figure>
-        <div className="story-copy">
-          <h2 className="h-md" data-rise>{story.title}</h2>
-          {story.body.map((p) => <p key={p.slice(0, 20)} data-rise>{p}</p>)}
-          <blockquote className="story-quote" data-rise><p>{story.quote}</p></blockquote>
-          <div className="story-links" data-rise>
-            <Btn href="/meet-the-team" variant="dark">Meet the team</Btn>
-            <TextLink href="https://www.greenhat-consulting.co.uk/about-us/">About Green Hat</TextLink>
-          </div>
+    <div className="wrap story-grid">
+      <figure className="story-person">
+        <Frame src={story.photo} alt={`${story.person.name}, ${story.person.role}`} className="story-photo" />
+        <figcaption data-rise><a href={story.person.href}>{story.person.name}</a><span>{story.person.role}</span></figcaption>
+      </figure>
+      <div className="story-copy">
+        <Eyebrow>About us</Eyebrow>
+        <p className="statement" data-rise>
+          We are a consultancy dedicated to <em className="serif">health, safety and compliance</em> within the construction industry. {intro.split("construction industry. ")[1]}
+        </p>
+        <h2 className="h-md" data-rise>{story.title}</h2>
+        {story.body.map((p) => <p key={p.slice(0, 20)} data-rise>{p}</p>)}
+        <blockquote className="story-quote" data-rise><p>{story.quote}</p></blockquote>
+        <div className="story-links" data-rise>
+          <Btn href="/meet-the-team" variant="dark">Meet the team</Btn>
+          <TextLink href="https://www.greenhat-consulting.co.uk/about-us/">About Green Hat</TextLink>
         </div>
-      </div>
-      <div className="values">
-        <h3 className="values-title" data-rise>Our <em className="serif">values</em></h3>
-        <ol className="values-list">
-          {values.map((v, i) => <li key={v.name} data-rise>
-            <span className="more-index">{String(i + 1).padStart(2, "0")}</span>
-            <h4>{v.name}</h4>
-            <p>{v.body}</p>
-          </li>)}
-        </ol>
       </div>
     </div>
   </section>;
 }
 
+/* A plain figures banner, as on the live site: four numbers in a single row on the brand green. */
 function Stats() {
-  return <section className="section stats" data-bg="forest">
-    <div className="wrap">
-      <Eyebrow>In numbers</Eyebrow>
-      <h2 className="h-lg" data-rise>Over 12 years of successful projects and satisfied customers.</h2>
-      <div className="stat-grid">
-        {stats.map((s) => <div className="stat" key={s.label} data-rise>
-          <p className="stat-label">{s.label}</p>
-          <p className="stat-value" data-count={s.value} data-plain={s.plain || undefined}>{s.plain ? s.value : s.value.toLocaleString("en-GB")}</p>
-        </div>)}
-      </div>
-    </div>
+  return <section className="stats" data-tone="dark" aria-label="Green Hat in numbers">
+    <dl className="wrap stat-row">
+      {stats.map((s) => <div className="stat" key={s.label} data-rise>
+        <dd className="stat-value" data-count={s.value} data-plain={s.plain || undefined}>{s.plain ? s.value : s.value.toLocaleString("en-GB")}</dd>
+        <dt className="stat-label">{s.label}</dt>
+      </div>)}
+    </dl>
   </section>;
 }
 
@@ -179,9 +164,9 @@ function Latest() {
 export default function Home() {
   return <>
     <Hero />
+    <Services />
     <Story />
     <Stats />
-    <Services />
     <Why />
     <Clients />
     <Cases />
