@@ -55,7 +55,9 @@ ul, ol { padding: 0; list-style: none; }
 .skip-link:focus { top: 12px; }
 
 .wrap { width: 100%; max-width: 1680px; margin-inline: auto; padding-inline: var(--gutter); }
-.section { padding-block: clamp(88px, 11vw, 168px); position: relative; }
+.section { padding-block: clamp(48px, 5vw, 80px); position: relative; }
+/* Neighbouring sections on the same ground share one gap instead of stacking two. */
+.section[data-bg="navy"] + .section[data-bg="navy"], .section[data-bg="white"] + .section[data-bg="white"], .section[data-bg="forest"] + .section[data-bg="forest"] { padding-top: 0; }
 /* The accent: one or two words set in Instrument Serif italic inside a Barlow headline. */
 .serif { font-family: var(--font-accent); font-style: italic; font-weight: 400; letter-spacing: -.01em; text-transform: none; }
 
@@ -221,7 +223,7 @@ ul, ol { padding: 0; list-style: none; }
 
 /* ---------- Services ---------- */
 .split-head { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px var(--gutter); align-items: end; }
-.service-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: clamp(56px, 7vw, 104px); }
+.service-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: clamp(36px, 4vw, 64px); }
 .service-card { position: relative; display: block; aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; }
 .frame { position: relative; overflow: hidden; }
 .frame img { width: 100%; height: 112%; margin-top: -6%; object-fit: cover; will-change: transform; }
@@ -232,7 +234,7 @@ ul, ol { padding: 0; list-style: none; }
 .service-card-label h3 { font-size: clamp(24px, 2.2vw, 34px); font-weight: 500; letter-spacing: -.025em; line-height: 1.05; max-width: 12ch; }
 .service-card:hover .arrow { transform: translate(3px, -3px); }
 
-.more { display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px var(--gutter); margin-top: clamp(88px, 10vw, 150px); }
+.more { display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px var(--gutter); margin-top: clamp(56px, 6vw, 96px); }
 .more-head { position: sticky; top: 120px; align-self: start; display: grid; gap: 24px; justify-items: start; }
 .more-head p { max-width: 40ch; opacity: .8; }
 .more-list { border-top: 1px solid var(--line); }
@@ -246,7 +248,7 @@ ul, ol { padding: 0; list-style: none; }
 
 /* ---------- Why ---------- */
 .why { display: grid; grid-template-columns: 1fr 1fr; min-height: 100svh; }
-.why-copy { padding: clamp(88px, 11vw, 168px) var(--gutter); display: grid; align-content: start; gap: 28px; }
+.why-copy { padding: clamp(48px, 5vw, 80px) var(--gutter); display: grid; align-content: start; gap: 28px; }
 .why-list { display: grid; gap: 0; margin-top: 32px; border-top: 1px solid var(--line); }
 .why-list li { display: grid; grid-template-columns: 64px 1fr; gap: 6px 24px; padding: 28px 0; border-bottom: 1px solid var(--line); }
 .why-list h3 { font-size: 24px; font-weight: 500; letter-spacing: -.02em; }
@@ -267,7 +269,7 @@ ul, ol { padding: 0; list-style: none; }
 
 /* ---------- Case studies ---------- */
 .cases { overflow: hidden; }
-.case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 12px; margin-top: clamp(48px, 6vw, 88px); }
+.case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 12px; margin-top: clamp(32px, 4vw, 56px); }
 .cases--index .case-grid { margin-top: 0; }
 .case-grid--3 { margin-top: 24px; }
 .case-card { display: grid; gap: 18px; }
@@ -282,8 +284,8 @@ ul, ol { padding: 0; list-style: none; }
 .case-card:hover .arrow { transform: translate(3px, -3px); color: var(--green); }
 
 /* ---------- Reviews ---------- */
-.reviews { display: grid; grid-template-columns: 56px 1fr 56px; align-items: center; gap: 24px; margin-top: clamp(48px, 6vw, 88px); }
-.reviews-card { background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .1); border-radius: var(--radius); padding: clamp(32px, 5vw, 72px); display: grid; gap: 40px; justify-items: center; text-align: center; min-height: 420px; align-content: center; }
+.reviews { display: grid; grid-template-columns: 56px 1fr 56px; align-items: center; gap: 24px; margin-top: clamp(32px, 4vw, 56px); }
+.reviews-card { background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .1); border-radius: var(--radius); padding: clamp(28px, 4vw, 56px); display: grid; gap: 32px; justify-items: center; text-align: center; min-height: 340px; align-content: center; }
 .reviews-card blockquote p { font-size: clamp(19px, 1.7vw, 26px); line-height: 1.4; letter-spacing: -.01em; max-width: 52ch; }
 .reviews-who { display: grid; justify-items: center; gap: 12px; }
 .reviews-who p { display: grid; gap: 2px; }
@@ -334,7 +336,7 @@ ul, ol { padding: 0; list-style: none; }
 .cta-actions { justify-content: center; }
 
 /* ---------- Footer ---------- */
-.site-footer { padding-top: clamp(72px, 8vw, 120px); overflow: hidden; color: var(--white); }
+.site-footer { padding-top: clamp(56px, 6vw, 88px); overflow: hidden; color: var(--white); }
 .footer-grid { display: grid; grid-template-columns: 1.6fr repeat(5, 1fr); gap: 40px 24px; padding-bottom: 72px; border-bottom: 1px solid rgba(255, 255, 255, .14); }
 .footer-brand { display: grid; gap: 20px; align-content: start; }
 .footer-brand .brand { width: 180px; }
@@ -352,7 +354,7 @@ ul, ol { padding: 0; list-style: none; }
 
 /* ---------- Inner pages ---------- */
 /* Heads fill most of the first screen so the next ground never starts blending in before the reader scrolls. */
-.page-head { min-height: 78svh; display: flex; flex-direction: column; justify-content: flex-end; padding-top: clamp(150px, 18vw, 240px); padding-bottom: clamp(56px, 7vw, 104px); }
+.page-head { min-height: 62svh; display: flex; flex-direction: column; justify-content: flex-end; padding-top: clamp(130px, 14vw, 200px); padding-bottom: clamp(40px, 5vw, 72px); }
 .page-head > .wrap { margin-inline: auto; }
 .page-title { font-size: clamp(44px, 7vw, 116px); }
 .page-title .serif { color: var(--green); }
@@ -368,7 +370,7 @@ ul, ol { padding: 0; list-style: none; }
 .article-aside { padding-top: 6px; }
 .back { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; }
 .back:hover { color: var(--green); }
-.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: clamp(72px, 8vw, 120px); padding-block: 32px; border-top: 1px solid var(--line); }
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: clamp(48px, 5vw, 72px); padding-block: 32px; border-top: 1px solid var(--line); }
 .pager-link { display: grid; gap: 8px; font-size: clamp(18px, 1.5vw, 22px); font-weight: 500; letter-spacing: -.01em; line-height: 1.25; max-width: 36ch; }
 .pager-link span { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; opacity: .55; }
 .pager-link:hover { color: var(--forest); }
